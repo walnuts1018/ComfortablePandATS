@@ -1,8 +1,18 @@
 import { getStoredAssignments } from "../entity/assignment/getAssignment";
-import { saveAssignmentEntry } from "../entity/assignment/saveAssignment";
-import { AssignmentEntry } from "../entity/assignment/types";
+import { Settings } from "../setting/types";
 
-const exportAssignmentLists = (hostname: string) => {
+export const exportAssignmentLists = (hostname: string) => {
+
     const storedAssignments = getStoredAssignments(hostname);
+
+    chrome.runtime.sendMessage(
+        {
+          contentScriptQuery: 'post',
+          endpoint: 'https://httpbssin.org/post'
+        },
+        (response) => {
+          console.log(response);
+        }
+      );
 };
-export default exportAssignmentLists;
+

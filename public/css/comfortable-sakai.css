@@ -744,6 +744,10 @@
     width: 65px;
 }
 
+.cp-settings-inputbox-wide {
+    width: 100%;
+}
+
 .cs-memo-item {
     padding-top: 5px;
     display: block;

@@ -94,7 +94,7 @@ export function SettingsTab(props: { onSettingsChange: (change: SettingsChange) 
                 }
             />
 
-            <StringItem
+            <ColorItem
                 description={topColorDangerDesc}
                 value={settings.color.topDanger}
                 onChange={(v) =>
@@ -105,7 +105,7 @@ export function SettingsTab(props: { onSettingsChange: (change: SettingsChange) 
                     })
                 }
             />
-            <StringItem
+            <ColorItem
                 description={topColorWarningDesc}
                 value={settings.color.topWarning}
                 onChange={(v) =>
@@ -116,7 +116,7 @@ export function SettingsTab(props: { onSettingsChange: (change: SettingsChange) 
                     })
                 }
             />
-            <StringItem
+            <ColorItem
                 description={topColorSuccessDesc}
                 value={settings.color.topSuccess}
                 onChange={(v) =>
@@ -127,7 +127,7 @@ export function SettingsTab(props: { onSettingsChange: (change: SettingsChange) 
                     })
                 }
             />
-            <StringItem
+            <ColorItem
                 description={topColorOtherDesc}
                 value={settings.color.topOther}
                 onChange={(v) =>
@@ -139,7 +139,7 @@ export function SettingsTab(props: { onSettingsChange: (change: SettingsChange) 
                 }
             />
 
-            <StringItem
+            <ColorItem
                 description={miniColorDangerDesc}
                 value={settings.color.miniDanger}
                 onChange={(v) =>
@@ -150,7 +150,7 @@ export function SettingsTab(props: { onSettingsChange: (change: SettingsChange) 
                     })
                 }
             />
-            <StringItem
+            <ColorItem
                 description={miniColorWarningDesc}
                 value={settings.color.miniWarning}
                 onChange={(v) =>
@@ -161,7 +161,7 @@ export function SettingsTab(props: { onSettingsChange: (change: SettingsChange) 
                     })
                 }
             />
-            <StringItem
+            <ColorItem
                 description={miniColorSuccessDesc}
                 value={settings.color.miniSuccess}
                 onChange={(v) =>
@@ -172,7 +172,7 @@ export function SettingsTab(props: { onSettingsChange: (change: SettingsChange) 
                     })
                 }
             />
-            <StringItem
+            <ColorItem
                 description={miniColorOtherDesc}
                 value={settings.color.miniOther}
                 onChange={(v) =>
@@ -204,7 +204,7 @@ export function SettingsTab(props: { onSettingsChange: (change: SettingsChange) 
                 }
             />
 
-            <TranslatedStringItem
+            <TranslatedUrlItem
                 descriptionTag="settings_enable_integration_module_url"
                 value={settings.appInfo.apiServerURL}
                 onChange={(v) =>
@@ -291,7 +291,7 @@ function TranslatedNumberItem(props: {
     );
 }
 
-function StringItem(props: {
+function ColorItem(props: {
     description: string;
     display?: boolean;
     value: string;
@@ -310,7 +310,7 @@ function StringItem(props: {
 }
 
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
-function TranslatedStringItem(props: {
+function TranslatedColorItem(props: {
     descriptionTag: string;
     display?: boolean;
     value: string;
@@ -318,7 +318,7 @@ function TranslatedStringItem(props: {
 }) {
     const description = useTranslationDeps(props.descriptionTag, [props.descriptionTag]);
     return (
-        <StringItem description={description} display={props.display} value={props.value} onChange={props.onChange} />
+        <ColorItem description={description} display={props.display} value={props.value} onChange={props.onChange} />
     );
 }
 
@@ -332,5 +332,35 @@ function ResetColorButton(props: { onClick: () => void }) {
                 <input type="button" value="reset" onClick={props.onClick}></input>
             </label>
         </div>
+    );
+}
+
+function UrlItem(props: {
+    description: string;
+    display?: boolean;
+    value: string;
+    onChange: (newValue: string) => void;
+}) {
+    return (
+        <SettingsItem description={props.description} display={props.display ?? true}>
+            <input
+                type="url"
+                className="cp-settings-inputbox-wide"
+                value={props.value}
+                onChange={(ev) => props.onChange(ev.target.value)}
+            ></input>
+        </SettingsItem>
+    );
+}
+
+function TranslatedUrlItem(props: {
+    descriptionTag: string;
+    display?: boolean;
+    value: string;
+    onChange: (newValue: string) => void;
+}) {
+    const description = useTranslationDeps(props.descriptionTag, [props.descriptionTag]);
+    return (
+        <UrlItem description={description} display={props.display} value={props.value} onChange={props.onChange} />
     );
 }
