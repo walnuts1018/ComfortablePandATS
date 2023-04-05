@@ -5,6 +5,8 @@ type AppInfo = {
     hostname: string;
     currentTime: number;
     useDarkTheme: boolean;
+    useIntegrationModule: boolean;
+    apiServerURL: string;
 };
 
 export type FetchTime = {
@@ -44,7 +46,9 @@ export class Settings {
         version: VERSION,
         hostname: window.location.hostname,
         currentTime: CurrentTime,
-        useDarkTheme: false
+        useDarkTheme: false,
+        useIntegrationModule: false,
+        apiServerURL: ""
     };
     fetchTime: FetchTime = {
         assignment: undefined,

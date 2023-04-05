@@ -191,6 +191,30 @@ export function SettingsTab(props: { onSettingsChange: (change: SettingsChange) 
                     })
                 }
             />
+
+            <TranslatedBooleanItem
+                descriptionTag="settings_enable_integration_module"
+                value={settings.appInfo.useIntegrationModule}
+                onChange={(v) =>
+                    props.onSettingsChange({
+                        type: "boolean",
+                        id: "appInfo.useIntegrationModule",
+                        newValue: v
+                    })
+                }
+            />
+
+            <TranslatedStringItem
+                descriptionTag="settings_enable_integration_module_url"
+                value={settings.appInfo.apiServerURL}
+                onChange={(v) =>
+                    props.onSettingsChange({
+                        type: "string",
+                        id: "appInfo.apiServerURL",
+                        newValue: v
+                    })
+                }
+            />
         </div>
     );
 }
