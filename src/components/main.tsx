@@ -15,6 +15,7 @@ import { MemoEntry } from "../features/entity/memo/types";
 import { removeMemoEntry, saveNewMemoEntry } from "../features/entity/memo/saveMemo";
 import { createFavoritesBar, resetFavoritesBar } from "./favoritesBar";
 import { getSakaiCourses } from "../features/course/getCourse";
+import { exportAssignmentLists } from '../features/integrationModules';
 
 export const MiniSakaiContext = React.createContext<{
     settings: Settings;
@@ -62,6 +63,7 @@ export class MiniSakaiRoot extends React.Component<MiniSakaiRootProps, MiniSakai
                 entities: allEntities
             });
             updateIsReadFlag(window.location.href, entities.assignment, this.props.hostname);
+            exportAssignmentLists(this.props.hostname);
         });
     }
 

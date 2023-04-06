@@ -13,7 +13,6 @@ async function main() {
         miniSakaiReady();
         await saveHostName(hostname);
         submitDetect(hostname);
-        exportAssignmentLists(hostname);
     }
 }
 

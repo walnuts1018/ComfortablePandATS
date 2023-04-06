@@ -1,22 +1,24 @@
-// For debugging
+import { PostMessage } from "./features/integrationModules/type";
 
-chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
+// from ./src/features/integrationModules/index.ts
+// CORS回避の為
+chrome.runtime.onMessage.addListener((message :PostMessage, sender, sendResponse) => {
     if (!message) {
-      sendResponse({
-        'status': false,
-        'reason': 'message is missing'
-      });
-    } else if(message.contentScriptQuery === 'post') {
-      fetch(message.endpoint, {
-        'method': 'POST'
+      sendResponse({status: false, message: "message is empty"});
+    } else{
+      fetch(message.url, {
+        method: "POST",
+        //headers: message.headers,
+        body: JSON.stringify(message.data)
       })
       .then((response) => {
         if (response && response.ok) {
-          sendResponse(true);
+          sendResponse({status: true, message: "ok"});
         }
       })
       .catch((error) => {
-        sendResponse(false);
+        console.error(error);
+        sendResponse({status: false, message: "failed to post"});
       });
     }
   
