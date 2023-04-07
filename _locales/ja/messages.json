@@ -33,8 +33,9 @@
       "time": { "content": "$2" }
     }
   },
-  "settings_enable_integration_module": {"message": "開発者向け: 外部連携機能を有効化する"},
-  "settings_enable_integration_module_url": {"message": "開発者向け: 外部連携APIサーバーのURL"},
+  "settings_open_dev_setting": {"message": "開発者設定項目"},
+  "settings_enable_integration_module": {"message": "外部連携機能を有効化する"},
+  "settings_enable_integration_module_url": {"message": "外部連携APIサーバーのURL"},
   "assignment_acquisition_date": {"message": "課題取得日時: "},
   "testquiz_acquisition_date": {"message": "クイズ取得日時: "},
   "due24h": {"message": "締め切り２４時間以内"},

@@ -33,6 +33,9 @@
       "time": { "content": "$2" }
     }
   },
+  "settings_open_dev_setting": {"message": "Developer Settings"},
+  "settings_enable_integration_module": {"message": "Enable integration function"},
+  "settings_enable_integration_module_url": {"message": "API Server URL"},
   "assignment_acquisition_date": {"message": "Assignment Acquisition Date: "},
   "testquiz_acquisition_date": {"message": "Test&Quiz Acquisition Date: "},
   "due24h": {"message": "Due within 24hrs"},
