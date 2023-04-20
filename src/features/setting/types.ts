@@ -55,7 +55,7 @@ export class Settings {
         quiz: 600
     };
     miniSakaiOption: DisplayOption = {
-        showCompletedEntry: true,
+        showCompletedEntry: false,
         showLateAcceptedEntry: false
     };
     color: CSColor = {
